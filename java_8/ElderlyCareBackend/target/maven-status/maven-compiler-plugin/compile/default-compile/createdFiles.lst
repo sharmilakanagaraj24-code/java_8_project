@@ -1,0 +1,14 @@
+com\elderlycare\Device.class
+com\elderlycare\MedicationSchedule.class
+com\elderlycare\DispensingEvent.class
+com\elderlycare\AcknowledgmentEvent.class
+com\elderlycare\ScheduledDose.class
+com\elderlycare\Medication.class
+com\elderlycare\Caregiver.class
+com\elderlycare\CaregiverLoginRequest.class
+com\elderlycare\ElderlyUser.class
+com\elderlycare\Alert.class
+com\elderlycare\MedicationSlot.class
+com\elderlycare\ElderlyCareApplication.class
+com\elderlycare\HomeController.class
+com\elderlycare\DatabaseController.class

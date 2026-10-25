@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElderCare | Caregiver Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">+</span>
+        <span><strong>ElderCare</strong><small>Medication support</small></span>
+      </a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="side-nav">
+        <a class="nav-link active" href="index.html"><span>▦</span> Dashboard</a>
+        <a class="nav-link" href="pages/elderly-users.html"><span>♙</span> Elderly Users</a>
+        <a class="nav-link" href="pages/caregivers.html"><span>♡</span> Caregivers</a>
+        <a class="nav-link" href="pages/medications.html"><span>▤</span> Medications</a>
+        <a class="nav-link" href="pages/schedules.html"><span>◷</span> Schedules</a>
+        <a class="nav-link" href="pages/alerts.html"><span>⚑</span> Alerts</a>
+        <a class="nav-link" href="pages/history.html"><span>↻</span> Medication History</a>
+        <a class="nav-link" href="pages/device-status.html"><span>⌁</span> Device Status</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><strong>Need assistance?</strong><p>Review device status and active alerts regularly.</p></div>
+        <small>ELDERCARE • FRONTEND DEMO</small>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div><div class="eyebrow">CAREGIVER WORKSPACE</div><h1>Dashboard</h1></div>
+        <div class="topbar-right">
+          <span class="connection-pill"><span class="status-dot"></span> Demo mode</span>
+          <div class="avatar">CG</div>
+        </div>
+      </header>
+
+      <section class="welcome-row">
+        <div><h2>Good day, Caregiver</h2><p>Here is an overview of medication support for today.</p></div>
+        <div class="today-chip" id="todayDate">Today</div>
+      </section>
+
+      <div class="demo-banner"><strong>Preview data:</strong> This dashboard currently uses sample data. It is not connected to the Java backend or ESP32 yet.</div>
+
+      <section class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon lavender">◷</span><span class="stat-note">Today's plan</span></div><div class="stat-value" id="scheduledCount">5</div><div class="stat-label">Scheduled doses</div><div class="stat-foot">Across both medication slots</div></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon mint">✓</span><span class="stat-note">Recorded</span></div><div class="stat-value" id="ackCount">2</div><div class="stat-label">Acknowledged</div><div class="stat-foot">Acknowledgment is not proof of swallowing</div></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon peach">▤</span><span class="stat-note warning-text">Monitor</span></div><div class="stat-value" id="lowStockCount">1</div><div class="stat-label">Low-stock slots</div><div class="stat-foot">Review stock before replenishment</div></article>
+        <article class="stat-card"><div class="stat-top"><span class="stat-icon rose">⚑</span><span class="stat-note warning-text">Needs review</span></div><div class="stat-value" id="alertCount">2</div><div class="stat-label">Active alerts</div><div class="stat-foot">Sample alerts for interface preview</div></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel schedule-panel">
+          <div class="panel-heading"><div><h3>Today's medication schedule</h3><p>Example scheduled doses</p></div><a class="text-link" href="pages/schedules.html">View schedules ↗</a></div>
+          <div class="table-responsive">
+            <table class="table align-middle dashboard-table">
+              <thead><tr><th>TIME</th><th>MEDICATION</th><th>SLOT</th><th>STATUS</th></tr></thead>
+              <tbody id="scheduleTableBody"></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="panel stock-panel">
+          <div class="panel-heading"><div><h3>Compartment stock</h3><p>Simulated values</p></div><span class="subtle-icon">▤</span></div>
+          <div class="stock-item"><div class="stock-title"><span>Slot 1</span><strong id="slot1Count">8 tablets</strong></div><div class="progress stock-progress"><div class="progress-bar stock-good" id="slot1Bar" style="width:80%"></div></div><small>Example medication: Vitamin D</small></div>
+          <div class="stock-item"><div class="stock-title"><span>Slot 2</span><strong id="slot2Count">2 tablets</strong></div><div class="progress stock-progress"><div class="progress-bar stock-low" id="slot2Bar" style="width:20%"></div></div><small>Example medication: Calcium</small><span class="inline-warning">Low stock — review refill</span></div>
+          <a href="pages/medications.html" class="btn btn-outline-care w-100 mt-3">Manage medications</a>
+        </article>
+      </section>
+
+      <section class="content-grid lower-grid">
+        <article class="panel">
+          <div class="panel-heading"><div><h3>Needs attention</h3><p>Sample alerts for layout testing</p></div><a class="text-link" href="pages/alerts.html">All alerts ↗</a></div>
+          <div id="alertList" class="alert-list"></div>
+        </article>
+        <article class="panel device-panel">
+          <div class="panel-heading"><div><h3>Dispenser status</h3><p>ESP32 integration not connected</p></div><span class="status-tag status-demo">Not connected</span></div>
+          <div class="device-illustration">⌁</div>
+          <h4>Medication dispenser</h4>
+          <p class="muted-copy">The Wokwi prototype is currently separate from this website. Device connectivity will be added after the backend API is ready.</p>
+          <a href="pages/device-status.html" class="btn btn-outline-care w-100">View device details</a>
+        </article>
+      </section>
+      <footer class="footer">ElderCare Medication Management <span>Student project • Frontend preview</span></footer>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
